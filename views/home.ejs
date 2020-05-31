@@ -1,7 +1,13 @@
+
+
 <%- include("partials/header"); -%>
 
-<h1> <%= titleText %> </h1>
 
-<p><%= paraText%></p>
+<% newPost.forEach (function (post){ %>
+
+<h1> <%= post.title%> </h1>
+
+<p><%= post.content%></p>
+ <% }) %>
 
 <%- include("partials/footer");-%>

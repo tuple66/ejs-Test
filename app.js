@@ -16,10 +16,10 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// This renders the home screen and delivers the contents of the posts array (objects)
 app.get("/", function(req,res){
   res.render("home",{
-    titleText:"Home",
-    paraText: homeStartingContent
+    newPost: posts,
   });
 
 })
@@ -45,14 +45,14 @@ app.get("/compose",function(req,res){
   });
 });
 
-
+// This takes the post information and converts it into an object with keys of title and content
+// This is new info is then pushed into the posts array and the hone screen called
 app.post("/compose", function(req,res){
   const post = {
     title:req.body.blogTitle,
     content: req.body.blogText
   };
   posts.push(post);
-  console.log(posts);
   res.redirect("/");
 
 
