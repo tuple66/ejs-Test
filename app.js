@@ -38,6 +38,11 @@ app.get("/contact", function(req,res){
   });
 })
 
+app.get("/compose",function(req,res){
+  res.render("compose",{
+  titleText:"Compose",
+  });
+});
 
 
 
